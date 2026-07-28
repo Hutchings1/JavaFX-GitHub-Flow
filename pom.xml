@@ -1,0 +1,74 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>nz.ac.auckland.se206</groupId>
+    <artifactId>lab-javafx-github-flow</artifactId>
+    <version>1.0.0</version>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>22</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>22</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>22</version>
+        </dependency>
+
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <release>11</release>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.3</version>
+                <configuration>
+                    <mainClass>nz.ac.auckland.se206.App</mainClass>
+                    <release>21</release>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.cosium.code</groupId>
+                <artifactId>git-code-format-maven-plugin</artifactId>
+                <version>3.4</version>
+                <executions>
+                    <!-- On commit, format the modified java files -->
+                    <execution>
+                        <id>install-formatter-hook</id>
+                        <goals>
+                            <goal>install-hooks</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <googleJavaFormatOptions>
+                        <aosp>false</aosp>
+                        <fixImportsOnly>false</fixImportsOnly>
+                        <skipSortingImports>false</skipSortingImports>
+                        <skipRemovingUnusedImports>false</skipRemovingUnusedImports>
+                    </googleJavaFormatOptions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
